@@ -3,11 +3,6 @@
  *
  * This is the producer process that writes to the shared memory region.
  *
- * Figure 3.17
- *
- * @author Silberschatz, Galvin, and Gagne
- * Operating System Concepts  - Ninth Edition
- * Copyright John Wiley & Sons - 2013
  */
 
 
@@ -18,6 +13,7 @@
 #include <sys/shm.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
+#include <unistd.h>
 
 int main()
 {

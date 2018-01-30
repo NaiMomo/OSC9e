@@ -3,11 +3,6 @@
  *
  * This is the consumer process
  *
- * Figure 3.18
- *
- * @author Gagne, Galvin, Silberschatz
- * Operating System Concepts - Ninth Edition
- * Copyright John Wiley & Sons - 2013
  */
 
 #include <stdio.h>
@@ -16,6 +11,7 @@
 #include <sys/shm.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
+#include <unistd.h>
 
 int main()
 {
@@ -41,7 +37,7 @@ int main()
 	}
 
 	/* now read from the shared memory region */
-	printf("%s",ptr);
+	printf("%s\n",(char *)ptr);
 
 	/* remove the shared memory segment */
 	if (shm_unlink(name) == -1) {

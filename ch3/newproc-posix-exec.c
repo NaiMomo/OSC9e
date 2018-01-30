@@ -1,5 +1,5 @@
 /**
- * This program forks a separate process using the fork() system calls.
+ * This program forks a separate process using the fork()/exec() system calls.
  *
  */
 
@@ -22,6 +22,7 @@ int main()
   }
   else if (pid == 0) { /* child process */
     printf("I am the child %d\n",pid);
+    execlp("ls","ls",NULL);
   }
   else { /* parent process */
     /* parent will wait for the child to complete */
@@ -30,8 +31,6 @@ int main()
     
     printf("Child Complete\n");
   }
-
-  printf("After the if \n");
   
   return 0;
 }

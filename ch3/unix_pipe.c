@@ -3,9 +3,6 @@
  *
  * Figures 3.25 & 3.26
  *
- * @author Silberschatz, Galvin, and Gagne
- * Operating System Concepts  - Ninth Edition
- * Copyright John Wiley & Sons - 2013
  */
 
 #include <stdio.h>
@@ -19,7 +16,7 @@
 
 int main(void)
 {
-	char write_msg[BUFFER_SIZE] = "Greetings";
+	char write_msg[BUFFER_SIZE] = "Bonjour!";
 	char read_msg[BUFFER_SIZE];
 	pid_t pid;
 	int fd[2];
