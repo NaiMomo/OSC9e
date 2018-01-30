@@ -20,6 +20,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 int sum; /* this data is shared by the thread(s) */
 int num_threads;
@@ -93,9 +94,12 @@ void *runner(void* input_interval)
 
   printf("Start = %d, end = %d \n", inter->start, inter->end);
   
-  for (i = inter->start; i <= inter->end; i++)
-    sum += i;
-
+  for (i = inter->start; i <= inter->end; i++){
+    int sum_temp = sum;
+    sum_temp += i;
+    sleep(0.1); // this will cause some serious synchronization problems
+    sum = sum_temp;;
+  }
   free(inter);
   pthread_exit(0);
 }
