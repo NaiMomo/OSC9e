@@ -61,16 +61,16 @@ int main(int argc, char *argv[])
     pthread_attr_init(&attr);
 
     //    This code works
-    struct interval* inter = malloc(sizeof(struct interval));
-    inter->start = start;
-    inter->end = end;
-    pthread_create(&tid[j],&attr,runner, (void *) inter);
+    /* struct interval* inter = malloc(sizeof(struct interval)); */
+    /* inter->start = start; */
+    /* inter->end = end; */
+    /* pthread_create(&tid[j],&attr,runner, (void *) inter); */
 
     // This code does not
-    //struct interval inter;
-    //inter.start=start;
-    //inter.end  =end;
-    //pthread_create(&tid[j],&attr,runner, (void *) &inter);
+    struct interval inter;
+    inter.start=start;
+    inter.end  =end;
+    pthread_create(&tid[j],&attr,runner, (void *) &inter);
 
     start = end + 1;
     end = end + input/num_threads;
@@ -96,6 +96,6 @@ void *runner(void* input_interval)
   for (i = inter->start; i <= inter->end; i++)
     sum += i;
 
-  free(inter);
+  //  free(inter);
   pthread_exit(0);
 }
