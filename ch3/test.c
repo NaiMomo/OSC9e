@@ -13,7 +13,7 @@ int main()
   if(fork() == 0){
     value += 15;
     execlp("ls","ls",NULL);
-    printf("blkhlkhlkjsdf");
+    printf("Value = %d \n", value);
   }
   else {
     wait(NULL);

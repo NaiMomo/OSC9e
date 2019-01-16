@@ -4,6 +4,10 @@ Compile individual files with:
 
 where <base_file_name> is the name of the file with the `.c` extension
 
+except for the shared memory examples which are compiled with
+
+       gcc <base_file_name>.c -o <base_file_name> -lrt
+
 Figure 3.9 newproc-posix.c
 Figure 3.11 newproc-win32.c
 Figure 3.17 shm-posix-consumer.c

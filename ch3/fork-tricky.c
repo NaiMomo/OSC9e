@@ -15,7 +15,7 @@ int main()
   pid = fork();
   pid = fork();
 
-  printf("bonjour \n");
+  printf("bonjour \n"); // how many times with this get printed?
   
   
   return 0;
