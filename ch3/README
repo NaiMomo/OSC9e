@@ -1,3 +1,9 @@
+Compile individual files with:
+
+        make <base_file_name>
+
+where <base_file_name> is the name of the file with the `.c` extension
+
 Figure 3.9 newproc-posix.c
 Figure 3.11 newproc-win32.c
 Figure 3.17 shm-posix-consumer.c
