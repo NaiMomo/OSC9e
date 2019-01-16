@@ -31,14 +31,21 @@ A good and reliable option is to run things in a Docker environment.
 
 4. Run a docker container and mount the directory you just cloned:
 
-   docker run -it -v `pwd`/OSC9e:/OSC9e ubuntu
+   docker run -it -v `pwd`/OSC9e:/OSC9e gcc
 
-where ` `pwd`/OSC9e` is the full path to the `OSC9e` directory.
+where ` `pwd`/OSC9e` is the full path to the `OSC9e` directory. `gcc` is just a ubuntu docker image with the `gcc` compiler already installed. 
 
 You are now entered into a clean ubuntu environment and you should see the folder `OSC9e` if you do `ls`. You can enter the folder with
 
     cd OSC9e
 
 and now enter the desired folder that you want follow the specific instructions.
+
+5. If you want to edit files to try things out (recommended)
+
+   apt update
+   apt install emacs
+
+or whatever editor you like (but emacs is the best :) )
 
 

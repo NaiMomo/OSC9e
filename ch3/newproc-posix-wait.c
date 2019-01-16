@@ -46,10 +46,6 @@ int main()
       pid_return_val = wait(&status);
 
       printf("Child %d returns with status %d \n",pid_return_val, status);
-      
-      //      pid_return_val = wait(&status);
-
-      //      printf("Child %d returns with status %d \n",pid_return_val, status);
     }
   }
   
