@@ -35,7 +35,7 @@ int main()
     if(pid2 < 0){ return 1; }
     else if (pid2 == 0){
       execlp("echo","echo","I am your new child, please love me",NULL);
-      return -1;
+      return(-1);
     }
     else{
       
@@ -45,7 +45,12 @@ int main()
       int status;
       pid_return_val = wait(&status);
 
-      printf("Child %d returns with status %d \n",pid_return_val, status);
+      printf("Child %d returns  \n",pid_return_val);
+
+      pid_return_val = wait(&status);
+
+      printf("Child %d returns  \n",pid_return_val);
+
     }
   }
   
