@@ -37,7 +37,7 @@ where `` `pwd`/OSC9e`` is the full path to the `OSC9e` directory. `gcc` is just 
 
 You are now entered into a clean ubuntu environment and you should see the folder `OSC9e` if you do `ls`. You can enter the folder with
 
-    `cd OSC9e`
+    cd OSC9e
 
 and now enter the desired folder that you want follow the specific instructions.
 
