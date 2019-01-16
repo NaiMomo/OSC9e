@@ -31,9 +31,9 @@ A good and reliable option is to run things in a Docker environment.
 
 4. Run a docker container and mount the directory you just cloned:
 
-   `docker run -it -v \`pwd\`/OSC9e:/OSC9e gcc`
+   ``docker run -it -v `pwd`/OSC9e:/OSC9e gcc``
 
-where ` \`pwd\`/OSC9e` is the full path to the `OSC9e` directory. `gcc` is just a ubuntu docker image with the `gcc` compiler already installed. 
+where `` `pwd`/OSC9e`` is the full path to the `OSC9e` directory. `gcc` is just a ubuntu docker image with the `gcc` compiler already installed. 
 
 You are now entered into a clean ubuntu environment and you should see the folder `OSC9e` if you do `ls`. You can enter the folder with
 
