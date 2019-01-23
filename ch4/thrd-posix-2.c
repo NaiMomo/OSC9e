@@ -70,12 +70,14 @@ int main(int argc, char *argv[])
     start = end + 1;
     end = end + input/num_threads;
   }
+
   for(j=0;j<num_threads;j++){
     /* now wait for the thread to exit */
     pthread_join(tid[j],NULL);
   }
   
   printf("sum = %d\n",sum);
+  return 0;
 }
 
 /**
