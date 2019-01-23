@@ -38,13 +38,13 @@ int main(int argc, char *argv[])
 
   
   if (argc != 3) {
-    fprintf(stderr,"usage: a.out <integer value>\n");
+    fprintf(stderr,"usage: a.out <integer value> <num threads> \n");
     /*exit(1);*/
     return -1;
   }
 
-  if (atoi(argv[1]) < 0) {
-    fprintf(stderr,"Argument %d must be non-negative\n",atoi(argv[1]));
+  if (atoi(argv[1]) < 0 || atoi(argv[2]) < 0) {
+    fprintf(stderr,"Argument %d and %d must be non-negative\n",atoi(argv[1]), atoi(argv[2]) );
     /*exit(1);*/
     return -1;
   }
@@ -60,27 +60,24 @@ int main(int argc, char *argv[])
     /* get the default attributes */
     pthread_attr_init(&attr);
 
-    //    This code works
-    /* struct interval* inter = malloc(sizeof(struct interval)); */
-    /* inter->start = start; */
-    /* inter->end = end; */
-    /* pthread_create(&tid[j],&attr,runner, (void *) inter); */
 
-    // This code does not
-    struct interval inter;
-    inter.start=start;
-    inter.end  =end;
-    pthread_create(&tid[j],&attr,runner, (void *) &inter);
+    struct interval* inter = malloc(sizeof(struct interval));
+    inter->start = start;
+    inter->end = end;
+    pthread_create(&tid[j],&attr,runner, (void *) inter);
+
 
     start = end + 1;
     end = end + input/num_threads;
   }
+
   for(j=0;j<num_threads;j++){
     /* now wait for the thread to exit */
     pthread_join(tid[j],NULL);
   }
   
   printf("sum = %d\n",sum);
+  return 0;
 }
 
 /**
@@ -96,6 +93,6 @@ void *runner(void* input_interval)
   for (i = inter->start; i <= inter->end; i++)
     sum += i;
 
-  //  free(inter);
+  free(inter);
   pthread_exit(0);
 }

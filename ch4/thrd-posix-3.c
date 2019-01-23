@@ -1,21 +1,3 @@
-/**
- * A pthread program illustrating how to
- * create a simple thread and some of the pthread API
- * This program implements the summation function where
- * the summation operation is run as a separate thread.
- *
- * Most Unix/Linux/OS X users
- * gcc thrd.c -lpthread
- *
- * Solaris users must enter
- * gcc thrd.c -lpthreads
- *
- * Figure 4.9
- *
- * @author Gagne, Galvin, Silberschatz
- * Operating System Concepts  - Ninth Edition
- * Copyright John Wiley & Sons - 2013
- */
 
 #include <pthread.h>
 #include <stdio.h>
@@ -67,12 +49,6 @@ int main(int argc, char *argv[])
     inter->end = end;
     pthread_create(&tid[j],&attr,runner, (void *) inter);
 
-    // This code does not
-    //struct interval inter;
-    //inter.start=start;
-    //inter.end  =end;
-    //pthread_create(&tid[j],&attr,runner, (void *) &inter);
-
     start = end + 1;
     end = end + input/num_threads;
   }
@@ -82,6 +58,7 @@ int main(int argc, char *argv[])
   }
   
   printf("sum = %d\n",sum);
+  return 0;
 }
 
 /**

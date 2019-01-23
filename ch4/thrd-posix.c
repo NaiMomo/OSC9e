@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
   pthread_join(tid,NULL);
 
   printf("sum = %d\n",sum);
+  return 0;
 }
 
 /**
