@@ -40,7 +40,6 @@ int main()
     else{
       
       printf("I am the parent %d\n",pid2);
-
       pid_t pid_return_val;
       int status;
       pid_return_val = wait(&status);
@@ -54,6 +53,6 @@ int main()
     }
   }
 
-  //printf("done\n"); how many times is this executed?
+  printf("done\n"); how many times is this executed?
   return 0;
 }
