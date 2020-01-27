@@ -34,7 +34,6 @@ int main()
 
     if(pid2 < 0){ return 1; }
     else if (pid2 == 0){
-      execlp("echo","echo","I am your new child, please love me",NULL);
       exit(-1);
     }
     else{
@@ -53,6 +52,6 @@ int main()
     }
   }
 
-  printf("done\n"); how many times is this executed?
+  printf("done\n"); //how many times is this executed?
   return 0;
 }

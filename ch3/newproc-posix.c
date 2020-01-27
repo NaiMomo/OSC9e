@@ -24,8 +24,9 @@ int main()
     printf("I am the child %d\n",pid);
   }
   else { /* parent process */
-    /* parent will wait for the child to complete */
     printf("I am the parent %d\n",pid);
+    /* parent will wait for the child to complete */
+
     wait(NULL);
     
     printf("Child Complete\n");

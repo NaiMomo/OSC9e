@@ -31,6 +31,8 @@ int main()
     
     printf("Child Complete\n");
   }
+
+  printf("After the if\n");
   
   return 0;
 }

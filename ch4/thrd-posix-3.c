@@ -74,7 +74,7 @@ void *runner(void* input_interval)
   for (i = inter->start; i <= inter->end; i++){
     int sum_temp = sum;
     sum_temp += i;
-    sleep(0.1); // this will cause some serious synchronization problems
+    usleep(100); // this will cause some serious synchronization problems
     sum = sum_temp;;
   }
   free(inter);
