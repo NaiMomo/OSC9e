@@ -1,8 +1,6 @@
 /*
  * Solution to question 3.1
  * 
- * Answer is 5 as the child and parent processes
- * each have their own copy of value.
  */
 
 #include <stdio.h>

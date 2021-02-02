@@ -26,7 +26,7 @@ int main()
     execl("/bin/ls","ls",NULL);
   }
   else { /* parent process */
-    /* parent will wait for the child to complete */
+
     printf("I am the parent %d\n",pid);
 
     pid_t pid2;
@@ -34,20 +34,20 @@ int main()
 
     if(pid2 < 0){ return 1; }
     else if (pid2 == 0){
-      exit(-1);
+      exit(1); /* second child exits with error */
     }
     else{
       
       printf("I am the parent %d\n",pid2);
       pid_t pid_return_val;
       int status;
-      pid_return_val = wait(&status);
+      pid_return_val = waitpid(pid, &status, 0);
 
-      printf("Child %d returns with status %d  \n",pid_return_val,status); // what will the status be?
+      printf("Child %d returns with status %d  \n",pid_return_val,WEXITSTATUS(status)); // what will the status be?
 
-      pid_return_val = wait(&status);
+      pid_return_val = waitpid(pid2, &status, 0);
 
-      printf("Child %d returns  with status %d \n",pid_return_val,status); // what will the status be?
+      printf("Child %d returns  with status %d \n",pid_return_val,WEXITSTATUS(status)); // what will the status be?
 
     }
   }
