@@ -3,6 +3,8 @@ This contains source code for the 9th edition of
 Published by John Wiley & Sons.
 
 Additions made by Liam Paull at University of Montreal for the class IFT2245.
+Some fixes by Samuel Yvon at University of Montreal for the class IFT2245.
+
 
 Source files are organized by Chapter. (Each chapter has a
 separate README file.)

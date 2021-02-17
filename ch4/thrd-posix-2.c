@@ -1,6 +1,6 @@
 /**
 
- */
+*/
 
 #include <pthread.h>
 #include <stdio.h>
@@ -19,9 +19,9 @@ struct interval {
 int main(int argc, char *argv[])
 {
   pthread_attr_t attr; /* set of attributes for the thread */
-  pthread_t tid[num_threads]; /* the thread identifier */
+  pthread_t *tid;
 
-  
+
   if (argc != 3) {
     fprintf(stderr,"usage: a.out <integer value> <num threads> \n");
     /*exit(1);*/
@@ -35,16 +35,21 @@ int main(int argc, char *argv[])
   }
 
   num_threads = atoi(argv[2]);
+  /* the thread identifier */
+  if(NULL == (tid = malloc(sizeof(pthread_t) * num_threads))) {
+      printf("Out of memory!\n");
+      exit(-1);
+  }
+
   int j;
   sum = 0;
   int start = 1;
   int input = atoi(argv[1]);
   int end = input/num_threads;
-  
+
   for(j=0;j<num_threads;j++){
     /* get the default attributes */
     pthread_attr_init(&attr);
-
 
     struct interval* inter = malloc(sizeof(struct interval));
     inter->start = start;
@@ -56,13 +61,15 @@ int main(int argc, char *argv[])
     end = end + input/num_threads;
   }
 
-  
 
   for(j=0;j<num_threads;j++){
     /* now wait for the thread to exit */
     pthread_join(tid[j],NULL);
   }
-  
+
+
+  free(tid);
+
   printf("sum = %d\n",sum);
   return 0;
 }
@@ -73,7 +80,7 @@ void *runner(void* input_interval)
   int i;
 
   printf("Start = %d, end = %d \n", inter->start, inter->end);
-  
+
   for (i = inter->start; i <= inter->end; i++)
     sum += i;
 
